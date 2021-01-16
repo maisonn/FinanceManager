@@ -11,7 +11,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="background-image: url(https://around.createx.studio/img/demo/presentation/intro/bg.jpg);">
+  <body>
     <header>
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">Expense Tracker</a>
@@ -23,7 +23,7 @@
           <%= link_to 'Categories', categories_path, class: "btn btn-outline-primary" %>
           </div>
           <div style="padding-left: 10px;">
-          <button class="btn btn-outline-warning" type="button">Generate Report</button>
+          <%= link_to 'Generate Report', categories_path, class: "btn btn-outline-warning" %>
           </div>
         </form>
       </nav>

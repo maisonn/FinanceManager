@@ -11,27 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
+  <form>
+  <div class="form-group row">
+    <div class="col-sm-1 col-form-label">
     <%= form.label :category %>
-    <%= form.select :category, Category.all, :prompt => "Select One", class: "form-control" %>
+    </div>
+    <div class="col-sm-3">
+    <%= form.select(:category, Category.all, { :prompt => 'Select a Category'}, { class: 'form-control' }) %>
+    </div>
   </div>
 
-  <div class="field form-group">
+  <div class="form-group row">
+    <div class="col-sm-1 col-form-label">
     <%= form.label :amount %>
-    <%= form.number_field :amount, min: 0, class: "form-control" %>
+    </div>
+    <div class="col-sm-3">
+    <%= form.number_field :amount, min: 0, class: "form-control", placeholder: "1, 25.5, 100, etc." %>
+    </div>
   </div>
 
-  <div class="field form-group">
+  <div class="form-group row">
+    <div class="col-sm-1 col-form-label">
     <%= form.label :date %>
-    <%= form.date_field :matriculation_date, as: :date, value: form.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %>
+    </div>
+    <div class="col-sm-3">
+    <%= form.date_field :date, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field form-group">
+  <div class="form-group row">
+    <div class="col-sm-1 col-form-label">
     <%= form.label :description %>
-    <%= form.text_field :description, class: "form-control" %>
+    </div>
+    <div class="col-sm-3">
+    <%= form.text_field :description, class: "form-control", placeholder: "Food, Taxi, Rent, etc." %>
+    </div>
   </div>
 
-  <div class="actions form-group">
+  <div class="form-group">
+    <div class="row col-sm-3">
     <%= form.submit "Save", class: "btn btn-outline-success" %>
+    </div>
   </div>
+  </form>
 <% end %>
+
