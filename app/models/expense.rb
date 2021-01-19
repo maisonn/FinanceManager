@@ -7,7 +7,4 @@ class Expense < ApplicationRecord
           t.timestamps
         end
     end
-    def to_s
-        category
-    end
 end
