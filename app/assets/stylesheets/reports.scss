@@ -1,0 +1,17 @@
+// Place all the styles related to the reports controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.flexContainer { 
+   
+  margin: 2px 10px;
+  display: flex;
+} 
+
+.left {
+  flex-basis : 40%;
+  text-align: left;
+}
+
+.right {
+  flex-basis : 70%;
+}

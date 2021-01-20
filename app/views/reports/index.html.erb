@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reports</h1>
+<div class="flexContainer">
+<div class="left">
+<% if @categories.any? %>
+    <table class="table table-striped">
+      <thead>
+        <th>Category</th>
+        <th>Spent</th>
+      </thead>
+      <tbody>
+        <% @expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.category %></td>
+        <td><%= expense.amount %></td>
+      </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Total</th>
+          <th>LOL</th>
+        </tr>
+      </tfoot>
+    </table>
+  <% else %>
+    <div>
+      You need to create some categories on the Category page prior to setting up your budget.
+    </div>
+  <% end %>
+</div>
+<div class="right">
+<%= pie_chart Expense.group(:category).sum(:amount) %>
+</div>
+</div>
+
+<%= line_chart Expense.group_by_day(:date).sum(:amount), prefix: "$" %>
+

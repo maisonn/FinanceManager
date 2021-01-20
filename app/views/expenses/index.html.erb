@@ -9,7 +9,7 @@
       <th>Amount</th>
       <th>Date</th>
       <th>Description</th>
-      <th colspan="3">Actions</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -31,7 +31,3 @@
 <br>
 
 <%= link_to 'New Expense', new_expense_path, class: "btn btn-outline-info" %>
-
-<%= pie_chart @expenses.group(:category).sum(:amount) %>
-
-<%= line_chart Expense.group_by_day(:date).sum(:amount), prefix: "$" %>

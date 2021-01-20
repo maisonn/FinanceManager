@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
-
+gem 'bootstrap', '~> 5.0.0.beta1'
 gem 'groupdate', '~> 5.2', '>= 5.2.1'
 gem 'chartkick', '~> 3.4', '>= 3.4.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
