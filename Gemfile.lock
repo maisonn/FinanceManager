@@ -208,6 +208,8 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  activemodel (~> 6.1, >= 6.1.1)
+  activerecord (~> 6.1, >= 6.1.1)
   bootsnap (>= 1.4.4)
   bootstrap (~> 5.0.0.beta1)
   byebug
