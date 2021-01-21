@@ -10,23 +10,20 @@
         <th>Spent</th>
       </thead>
       <tbody>
-        <% @expenses.each do |expense| %>
-      <tr>
-        <td><%= expense.category %></td>
-        <td><%= expense.amount %></td>
-      </tr>
+        <% @expenses.group(:category).each do |expense| %>
+        <%= render 'rep', expense: expense %>
         <% end %>
       </tbody>
       <tfoot>
         <tr>
           <th>Total</th>
-          <th>LOL</th>
+          <th id="spent-total"><%= Expense.sum(:amount) %></th>
         </tr>
       </tfoot>
     </table>
   <% else %>
     <div>
-      You need to create some categories on the Category page prior to setting up your budget.
+      You need to create some categories on the Category page prior to setting up Reports.
     </div>
   <% end %>
 </div>
