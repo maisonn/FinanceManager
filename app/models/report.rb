@@ -1,3 +1,3 @@
-class Report < ActiveRecord::Relation
+class Report < ActiveRecord::Base
     
 end
