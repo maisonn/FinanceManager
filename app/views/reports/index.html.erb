@@ -16,15 +16,15 @@
       <tfoot>
         <tr>
           <th>Total</th>
-          <th><%= Expense.where(date: (('2021-01-16')..('2021-01-21'))).sum(:amount) %></th>
+          <th>$<%= Expense.where(date: (('2021-01-16')..('2021-01-21'))).sum(:amount) %></th>
         </tr>
       </tfoot>
     </table>
 </div>
 <div class="right">
-<%= pie_chart Expense.where(date: (('2021-01-16')..('2021-01-21'))).group(:category).sum(:amount) %>
+<%= pie_chart Expense.where(date: (('2021-01-16')..('2021-01-21'))).group(:category).sum(:amount), prefix: "$", title: "Expenses Report For Period:", download: {filename: "PieReport"} %>
 </div>
 </div>
 
-<%= line_chart Expense.where(date: (('2021-01-16')..('2021-01-21'))).group_by_day(:date).sum(:amount), prefix: "$" %>
+<%= line_chart Expense.where(date: (('2021-01-16')..('2021-01-21'))).group_by_day(:date).sum(:amount), prefix: "$", title: "Expenses Report For Period:", download: {filename: "LineReport"} %>
 
