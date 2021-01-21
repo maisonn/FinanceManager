@@ -3,34 +3,28 @@
 <h1>Reports</h1>
 <div class="flexContainer">
 <div class="left">
-<% if @categories.any? %>
     <table class="table table-striped">
       <thead>
         <th>Category</th>
         <th>Spent</th>
       </thead>
       <tbody>
-        <% @expenses.where(date: '2021-01-21').group(:category).each do |expense| %>
+        <% @expenses.where(date: (('2021-01-16')..('2021-01-21'))).group(:category).each do |expense| %>
         <%= render 'rep', expense: expense %>
         <% end %>
       </tbody>
       <tfoot>
         <tr>
           <th>Total</th>
-          <th><%= Expense.where(date: '2021-01-21').sum(:amount) %></th>
+          <th><%= Expense.where(date: (('2021-01-16')..('2021-01-21'))).sum(:amount) %></th>
         </tr>
       </tfoot>
     </table>
-  <% else %>
-    <div>
-      You need to create some categories on the Category page prior to setting up Reports.
-    </div>
-  <% end %>
 </div>
 <div class="right">
-<%= pie_chart Expense.where(date: '2021-01-21').group(:category).sum(:amount) %>
+<%= pie_chart Expense.where(date: (('2021-01-16')..('2021-01-21'))).group(:category).sum(:amount) %>
 </div>
 </div>
 
-<%= line_chart Expense.where(date: '2021-01-21').group_by_day(:date).sum(:amount), prefix: "$" %>
+<%= line_chart Expense.where(date: (('2021-01-16')..('2021-01-21'))).group_by_day(:date).sum(:amount), prefix: "$" %>
 
