@@ -12,6 +12,7 @@ import "bootstrap"
 import "../stylesheets/application"
 
 require("chartkick")
+require("highcharts")
 
 Rails.start()
 Turbolinks.start()
