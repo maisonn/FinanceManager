@@ -7,6 +7,7 @@ gem 'activerecord', '~> 6.1', '>= 6.1.1'
 gem 'bootstrap', '~> 5.0.0.beta1'
 gem 'groupdate', '~> 5.2', '>= 5.2.1'
 gem 'chartkick', '~> 3.4', '>= 3.4.2'
+gem 'flatpickr'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use sqlite3 as the database for Active Record
