@@ -2,13 +2,7 @@
 
 <h1>Reports</h1>
 
-<script type="text/javascript">
-    $('.datepicker').datepicker({
-      inputs: $('.actual_range'),
-      format: 'yyyy-mm-dd',
-      autoclose: true
-    });
-</script>
+
 
 <div>
   <%= form_tag api_expense_reports_path(@expenses), remote: true do %>
