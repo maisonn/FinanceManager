@@ -4,7 +4,9 @@ class Expense < ApplicationRecord
           t.string :category
           t.decimal :amount
           t.date :date
+          t.string :description
           t.timestamps
         end
     end
+    has_many :reports
 end

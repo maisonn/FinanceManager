@@ -1,29 +1,50 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Reports</h1>
-<div class="flexContainer">
-<div class="left">
-    <table class="table table-striped">
-      <thead>
-        <th>Category</th>
-        <th>Spent</th>
-      </thead>
-      <tbody>
-        <% @expenses.where(date: (('2021-01-16')..('2021-01-21'))).group(:category).each do |expense| %>
-        <%= render 'rep', expense: expense %>
-        <% end %>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th>Total</th>
-          <th>$<%= Expense.where(date: (('2021-01-16')..('2021-01-21'))).sum(:amount) %></th>
-        </tr>
-      </tfoot>
-    </table>
+
+<script type="text/javascript">
+    $('.datepicker').datepicker({
+      inputs: $('.actual_range'),
+      format: 'yyyy-mm-dd',
+      autoclose: true
+    });
+</script>
+
+<div>
+  <%= form_tag api_expense_reports_path(@expenses), remote: true do %>
+    <div class="col-sm-1">
+      <label for="start_date">Start date</label>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="input-group">
+        <input type="text" class="actual_range form-control datepicker" id="start_date" name="start_date">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-1 col-sm-offset-1">
+      <label for="end_date">End date</label>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="input-group">
+        <input type="text" class="actual_range form-control datepicker" id="end_date" name="end_date">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <%= submit_tag 'Show!', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 </div>
-<div class="right">
-<%= pie_chart Expense.where(date: (('2021-01-16')..('2021-01-21'))).group(:category).sum(:amount), prefix: "$", title: "Expenses Report For Period:" %>
-</div>
-</div>
-<%= line_chart Expense.where(date: (('2021-01-16')..('2021-01-21'))).group(:category).group_by_day(:date).sum(:amount), prefix: "$", title: "Expenses Report For Period:" %>
+
+<%= render 'items' %>
+
+
 

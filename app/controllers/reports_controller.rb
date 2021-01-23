@@ -5,7 +5,6 @@ class ReportsController < ApplicationController
   # GET /reports.json
   def index
     @expenses = Expense.all
-    @categories = Category.all
   end
 
   # GET /reports/1

@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+
+en:
+  time:
+    formats:
+       medium: '%Y %B %d'
