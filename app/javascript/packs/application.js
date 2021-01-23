@@ -10,6 +10,7 @@ import "channels"
 
 import "bootstrap"
 import "../stylesheets/application"
+import flatpickr from "flatpickr"
 
 require("chartkick")
 require("highcharts")
