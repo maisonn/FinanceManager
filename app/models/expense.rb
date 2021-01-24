@@ -8,5 +8,4 @@ class Expense < ApplicationRecord
           t.timestamps
         end
     end
-    has_many :reports
 end

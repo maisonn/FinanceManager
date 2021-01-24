@@ -6,14 +6,14 @@
         <th>Spent</th>
       </thead>
       <tbody>
-        <% @expenses.where(date: @start_date..@end_date).group(:category).each do |expense| %>
+        <% @expenses.where(date: (('2021-01-16')..('2021-01-21'))).group(:category).each do |expense| %>
         <%= render 'rep', expense: expense %>
         <% end %>
       </tbody>
       <tfoot>
         <tr>
           <th>Total</th>
-          <th>$<%= Expense.where(date: @start_date..@end_date).sum(:amount) %></th>
+          <th>$<%= Expense.where(date: (('2021-01-16')..('2021-01-21'))).sum(:amount) %></th>
         </tr>
       </tfoot>
     </table>
@@ -21,3 +21,5 @@
 <div class="right">
 </div>
 </div>
+
+<%= render 'chart' %>

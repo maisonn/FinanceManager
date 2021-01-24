@@ -1,4 +1,2 @@
-<div id="chart">
-    <%= pie_chart Expense.where(date: (('2021-01-16')..('2021-01-21'))).group(:category).sum(:amount), prefix: "$", title: "Expenses Report For Period:" %>
-    <%= line_chart Expense.where(date: @start_date..@end_date).group(:category).group_by_day(:date).sum(:amount), prefix: "$", title: "Expenses Report For Period:" %>
-</div>
+<%= pie_chart Expense.where(date: (('2021-01-16')..('2021-01-21'))).group(:category).sum(:amount), prefix: "$", title: "Expenses Report For Period:" %>
+<%= line_chart Expense.where(date: (('2021-01-16')..('2021-01-21'))).group(:category).group_by_day(:date).sum(:amount), prefix: "$", title: "Expenses Report For Period:" %>
