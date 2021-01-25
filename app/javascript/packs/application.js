@@ -10,8 +10,7 @@ import "channels"
 
 import "bootstrap"
 import "../stylesheets/application"
-import flatpickr from "flatpickr"
-import { toggleDateInputs } from '../plugins/init_flatpickr';
+import "../plugins/flatpickr"
 
 require("chartkick")
 require("highcharts")
@@ -22,29 +21,3 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-toggleDateInputs();
-
-document.addEventListener("turbolinks:load", () => {
-    12
-        $('[data-tooltip-display="true"]').tooltip(),
-    13
-        flatpickr("[class='flatpickr']", {})
-    14
-
-require("chartkick")
-require("highcharts")
-require("flatpickr")
-require("flatpickr/dist/themes/material_green.css")
-
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
-
-
-document.addEventListener("turbolinks:load", () => {
-    12
-        $('[data-tooltip-display="true"]').tooltip(),
-    13
-        flatpickr("[class='flatpickr']", {})
-    14
-    })

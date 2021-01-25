@@ -13,7 +13,7 @@
 
   <form>
   <div class="form-group row">
-    <div class="col-sm-1 col-form-label">
+  <div class="col-sm-1 col-form-label">
     <%= form.label :category %>
     </div>
     <div class="col-sm-3">
@@ -35,7 +35,7 @@
     <%= form.label :date %>
     </div>
     <div class="col-sm-3">
-    <%= form.date_field :date, class: 'form-control' %>
+    <%= form.text_field :date, class: 'form-control flatpickr', placeholder: "Select a Date" %>
     </div>
   </div>
 
