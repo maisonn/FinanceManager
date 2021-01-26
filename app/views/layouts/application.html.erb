@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title class="navbar-brand">Expense Tracker</title>
+    <title class="navbar-brand">Finance Manager</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,8 +14,11 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light", style= "background-color: #e3f2fd;">
-        <a class="navbar-brand" href="/">Expense Tracker</a>
+        <a class="navbar-brand" href="/">Finance Manager</a>
         <form class="form-inline">
+          <div style="padding-left: 10px;">
+          <%= link_to 'Incomes', incomes_path, class: "btn btn-outline-info" %>
+          </div>
           <div style="padding-left: 10px;">
           <%= link_to 'Expenses', expenses_path, class: "btn btn-outline-success" %>
           </div>
