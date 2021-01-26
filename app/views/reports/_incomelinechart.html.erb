@@ -1,0 +1,1 @@
+<%= line_chart Income.where(date: @start_date..@end_date).group(:category).group_by_day(:date).sum(:amount), prefix: "$" %>
