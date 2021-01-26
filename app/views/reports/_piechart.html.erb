@@ -1,1 +1,1 @@
-<%= pie_chart Expense.where(date: @start_date..@end_date).group(:category).sum(:amount), prefix: "$", title: "Expenses Report For Period:" %>
+<%= pie_chart Expense.where(date: @start_date..@end_date).group(:category).sum(:amount), prefix: "$" %>

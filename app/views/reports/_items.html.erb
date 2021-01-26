@@ -1,26 +1,27 @@
-<div class="flexContainer">
-<div class="left">
-    <table class="table table-striped">
-      <thead>
-        <th>Category</th>
-        <th>Spent</th>
-      </thead>
-      <tbody>
-        <% @expenses.where(date: @start_date..@end_date).group(:category).each do |expense| %>
-        <%= render 'rep', expense: expense %>
-        <% end %>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th>Total</th>
-          <th>$<%= Expense.where(date: @start_date..@end_date).sum(:amount) %></th>
-        </tr>
-      </tfoot>
-    </table>
-</div>
-<div class="right">
-<%= render 'piechart' %>
-</div>
+<div class="form-group row">
+      <div class="col-sm-3">
+        <table class="table table-striped">
+          <thead>
+            <th>Category</th>
+            <th>Spent</th>
+          </thead>
+          <tbody>
+            <% @expenses.where(date: @start_date..@end_date).group(:category).each do |expense| %>
+            <%= render 'rep', expense: expense %>
+            <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Total</th>
+              <th>$<%= Expense.where(date: @start_date..@end_date).sum(:amount) %></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    
+    <div class="right">
+      <%= render 'piechart' %>
+    </div>
 </div>
 
 <%= render 'linechart' %>
