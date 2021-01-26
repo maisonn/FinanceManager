@@ -1,15 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<%= render 'reportstitle' %>
-
-<%= render 'form' %>
-
 <% if @start_date.nil? || @end_date.nil? %>
+<h1>Insert Dates</h1>
 <% elsif (@start_date <= @end_date) && (@start_date != '' || @end_date != '') %>
-<%= render 'items' %>
+<h1>Reports For Period: <%= @start_date %> and <%= @end_date %></h1>
 <% else %>
+<h1>Date is invalid</h1>
 <% end %>
-
-
-
-
