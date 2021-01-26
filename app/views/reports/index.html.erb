@@ -2,27 +2,15 @@
 
 <h1>Reports</h1>
 
-<%= form_with(url: reports_path, method: :get) do |form| %>
-  <form>
-  <div class="form-group row">
-    <div class="col-sm-3">
-    <%= form.text_field :start_date, class: 'form-control flatpickr', placeholder: "Select First Date" %>
-    </div>
-    <div class="col-sm-3">
-    <%= form.text_field :end_date, class: 'form-control flatpickr', placeholder: "Select Last Date" %>
-    </div>
-    <div class="row col-sm-3">
-    <%= form.submit "Generate", class: "btn btn-outline-info" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="row col-sm-3">
-    <%= form.submit "Generate", class: "btn btn-outline-info" %>
-    </div>
-  </div>
-  </form>
-<% end %>
+<%= render 'form' %>
 
+<% if @start_date.nil? || @end_date.nil? %>
+<h1>Insert Dates</h1>
+<% elsif (@start_date <= @end_date) && (@start_date != '' || @end_date != '') %>
+<%= render 'items' %>
+<% else %>
+<h1>Date is invalid</h1>
+<% end %>
 
 
 
