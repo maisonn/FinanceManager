@@ -4,14 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.2'
 gem 'activemodel', '~> 6.1', '>= 6.1.1'
 gem 'activerecord', '~> 6.1', '>= 6.1.1'
-gem 'bootstrap', '~> 5.0.0.beta1'
+gem 'bootstrap'
 gem 'groupdate', '~> 5.2', '>= 5.2.1'
 gem 'chartkick', '~> 3.4', '>= 3.4.2'
 gem 'flatpickr'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets

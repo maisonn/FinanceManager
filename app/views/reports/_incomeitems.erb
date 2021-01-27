@@ -6,7 +6,7 @@
             <th>Gained</th>
           </thead>
           <tbody>
-            <% @incomes.where(date: @start_date..@end_date).group(:category).each do |income| %>
+            <% @incomes.group('incomes.id').where(date: @start_date..@end_date).group(:category).each do |income| %>
             <%= render 'incomerep', income: income %>
             <% end %>
           </tbody>

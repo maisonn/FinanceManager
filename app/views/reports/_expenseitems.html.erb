@@ -6,7 +6,7 @@
             <th>Spent</th>
           </thead>
           <tbody>
-            <% @expenses.where(date: @start_date..@end_date).group(:category).each do |expense| %>
+            <% @expenses.group('expenses.id').where(date: @start_date..@end_date).group(:category).each do |expense| %>
             <%= render 'expenserep', expense: expense %>
             <% end %>
           </tbody>
