@@ -2,6 +2,17 @@
 @import 'flatpickr/dist/flatpickr.css';
 @import 'https://code.highcharts.com/css/highcharts.css';
 body { background-color: #fffcee }
+table {
+    background: #fffae6;
+    border: 2px solid #dbd9c0;
+    border-radius: 5px;
+    width: 50%;
+    border-spacing: 0px;
+    border-collapse: separate;
+}
+table th {
+    background: #e4e1d5;
+}
 .highcharts-background {
     fill: #fffcee;
 }

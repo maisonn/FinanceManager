@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
   resources :incomes
   resources :reports
   resources :categories
   resources :expenses
-  root 'reports#index'
+  root 'welcome#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
