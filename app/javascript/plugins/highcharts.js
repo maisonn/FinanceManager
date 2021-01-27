@@ -11,10 +11,25 @@ Highcharts.setOptions({
         },
         stops: [
           [0, color],
-          [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
+          [1, Highcharts.color(color).brighten(-0.6).get('rgb')] // darken
         ]
       };
-    })
+    }),
+    plotOptions: {
+      pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          depth: 35,
+          dataLabels: {
+              enabled: true,
+              format: '{point.name}',
+              style: {
+                    color: "(Highcharts.theme && Highcharts.theme.contrastTextColor) || 'red'".js_code
+              },
+              connectorColor: 'silver'
+          }
+      }
+  }
   });
 
 window.Highcharts = Highcharts;
