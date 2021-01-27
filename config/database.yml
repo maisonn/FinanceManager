@@ -19,3 +19,5 @@ test:
 production:
   <<: *default
   database: FinanceManager_production
+  username: postgres
+  password: <%= ENV['PROJECT_PASSWORD'] %>
