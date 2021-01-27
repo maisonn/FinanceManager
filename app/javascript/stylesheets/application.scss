@@ -10,9 +10,11 @@ table {
     border-spacing: 0px;
     border-collapse: separate;
 }
-table th {
+table th { 
     background: #e4e1d5;
+    font-size: large
 }
+table td { font-size: medium; }
 .highcharts-background {
     fill: #fffcee;
 }

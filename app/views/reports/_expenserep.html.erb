@@ -1,6 +1,6 @@
 <tr>
-  <td>
+  <td class="align-middle">
     <%= expense.category %>
   </td>
-  <td>$<%= Expense.where(date: @start_date..@end_date, category: expense.category).sum(:amount) %></td>
+  <td class="align-middle">$<%= Expense.where(date: @start_date..@end_date, category: expense.category).sum(:amount) %></td>
 </tr>

@@ -21,10 +21,10 @@
   <tbody>
     <% @incomes.each do |income| %>
       <tr>
-        <td><%= income.category %></td>
-        <td><%= income.amount %></td>
-        <td><%= income.date %></td>
-        <td><%= income.description %></td>
+        <td class="align-middle"><%= income.category %></td>
+        <td class="align-middle"><%= income.amount %></td>
+        <td class="align-middle"><%= income.date %></td>
+        <td class="align-middle "><%= income.description %></td>
         <td><%= link_to 'Show', income, class: "btn btn-outline-info" %>
         <%= link_to 'Edit', edit_income_path(income), class: "btn btn-outline-success" %>
         <%= link_to 'Destroy', income, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %></td>
