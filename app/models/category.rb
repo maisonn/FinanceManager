@@ -1,11 +1,6 @@
 class Category < ApplicationRecord
-    def change
-        create_table :categories do |t|
-          t.string :name
-          t.string :description
-          t.timestamps
-        end
-    end
+    has_many :expenses # can have many expenses
+    has_many :incomes  # can have many incomes
     def to_s
         name
     end

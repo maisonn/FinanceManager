@@ -1,12 +1,12 @@
-class CreateIncomes < ActiveRecord::Migration[6.1]
+class CreateIncome < ActiveRecord::Migration[6.1]
   def change
-    create_table :incomes do |t|
-      t.string :category
-      t.decimal :amount
-      t.date :date
-      t.string :description
-
-      t.timestamps
+    create_table :income do |t|
+      t.references :category
+      t.decimal    :amount,   precision: 8, scale: 2
+      t.date       :date
+      t.string     :description
+      # OR same result
+      t.bigint     :category_id
     end
   end
 end

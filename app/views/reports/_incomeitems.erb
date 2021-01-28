@@ -6,8 +6,8 @@
             <th>Gained</th>
           </thead>
           <tbody>
-            <% @incomes.group('incomes.id').where(date: @start_date..@end_date).group(:category).each do |income| %>
-            <%= render 'incomerep', income: income %>
+            <% Category.all.each do |category| %>
+              <%= render 'incomerep', category: category %>
             <% end %>
           </tbody>
           <tfoot>
@@ -20,8 +20,8 @@
       </div>
     
     <div>
-      <%= render 'incomepiechart' %>
+      <%= pie_chart Income.where(date: @start_date..@end_date).group(:category_id).sum(:amount), prefix: "$", width: "800px", height: "500px" %>
     </div>
 </div>
 
-<%= render 'incomelinechart' %>
+<%= line_chart Income.where(date: @start_date..@end_date).group(:category_id).group_by_day(:date).sum(:amount), prefix: "$", height: "500px" %>

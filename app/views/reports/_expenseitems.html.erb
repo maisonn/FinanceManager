@@ -6,8 +6,8 @@
             <th>Spent</th>
           </thead>
           <tbody>
-            <% @expenses.group('expenses.id').where(date: @start_date..@end_date).group(:category).each do |expense| %>
-            <%= render 'expenserep', expense: expense %>
+            <% Category.all.each do |category| %>
+              <%= render 'expenserep', category: category %>
             <% end %>
           </tbody>
           <tfoot>
@@ -20,8 +20,8 @@
       </div>
     
     <div>
-      <%= render 'expensepiechart' %>
+      <%= pie_chart Expense.where(date: @start_date..@end_date).group(:category_id).sum(:amount), prefix: "$", width: "800px", height: "500px" %>
     </div>
 </div>
 
-<%= render 'expenselinechart' %>
+<%= line_chart Expense.where(date: @start_date..@end_date).group(:category_id).group_by_day(:date).sum(:amount), prefix: "$", height: "500px" %>
