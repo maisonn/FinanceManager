@@ -1,10 +1,11 @@
-class CreateCategory < ActiveRecord::Migration[6.1]
+class CreateCategories < ActiveRecord::Migration[6.1]
   def change
-    create_table :category do |t|
+    create_table :categories do |t|
       t.string     :name
       t.string     :description
-      # OR same result
       t.bigint     :category_id
+
+      t.timestamps
     end
   end
 end
