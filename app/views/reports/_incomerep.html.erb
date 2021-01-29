@@ -1,8 +1,0 @@
-<tr>
-  <td class="align-middle">
-    <%= category.name %>
-  </td>
-  <td class="align-middle">
-  $<%= category.incomes.where(date: @start_date..@end_date).sum(:amount) %>
-  </td>
-</tr>

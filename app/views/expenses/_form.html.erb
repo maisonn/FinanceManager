@@ -26,7 +26,7 @@
       <%= form.label :amount %>
       </div>
       <div class="col-sm-3">
-      <%= form.number_field :amount, min: 0, class: "form-control", placeholder: "1, 25.5, 100, etc." %>
+      <%= form.number_field :amount, step: 0.01, min: 0, class: "form-control", placeholder: "1, 25.5, 100, etc." %>
       </div>
     </div>
 
