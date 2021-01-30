@@ -42,30 +42,14 @@ class ReportsController < ApplicationController
   end
   
   def datamydata
-    # query expenses for a date range
-    expenses = Expense.where(date: @start_date..@end_date)
-    # load the categories and put them in a hash where the category id is the key
-    categories_by_id = Category.where(id: expenses.map(&:category_id).uniq).index_by(&:id)
-
-    # build the expected data structure, collect the expenses by category id
-    my_data = expenses.group_by(&:category_id).each_with_object([]) do |(category_id, expenses), array|
-      #collect the category expenses by day and count them
-      counts_by_day = expenses.group_by_day { |expense| expense.date.to_date }.transform_values{ |expenses| expenses.sum(&:amount) }
-      array << { name: categories_by_id[category_id].name, data: counts_by_day} # data structure
-    end
+    data = Expense.where(date: @start_date..@end_date).group(:category_id).group_by_day(:date).sum(:amount)
+    categories_by_id = Category.all.index_by(&:id)
+    data.transform_keys { |key| [categories_by_id[key[0]].name, key[1]] }
   end
 
   def mydatamy
-    # query incomes for a date range
-    incomes = Income.where(date: @start_date..@end_date)
-    # load the categories and put them in a hash where the category id is the key
-    categories_by_id = Category.where(id: incomes.map(&:category_id).uniq).index_by(&:id)
-
-    # build the expected data structure, collect the incomes by category id
-    my_data = incomes.group_by(&:category_id).each_with_object([]) do |(category_id, incomes), array|
-      #collect the category incomes by day and count them
-      counts_by_day = incomes.group_by_day { |expense| expense.date.to_date }.transform_values{ |incomes| incomes.sum(&:amount) }
-      array << { name: categories_by_id[category_id].name, data: counts_by_day} # data structure
-    end
+    data = Income.where(date: @start_date..@end_date).group(:category_id).group_by_day(:date).sum(:amount)
+    categories_by_id = Category.all.index_by(&:id)
+    data.transform_keys { |key| [categories_by_id[key[0]].name, key[1]] }
   end
 end
