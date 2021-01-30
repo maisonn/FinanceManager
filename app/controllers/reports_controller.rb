@@ -13,7 +13,6 @@ class ReportsController < ApplicationController
     #Total Sum
     @total = Expense.where(date: @start_date..@end_date).sum(:amount)
 
-    
 
     #For Incomes
     @hashi_var = keytransformincome
@@ -24,10 +23,6 @@ class ReportsController < ApplicationController
 
     #Total Sum
     @totali = Income.where(date: @start_date..@end_date).sum(:amount)
-
-    
-    
-
   end
 
   def keytransformexpense
@@ -73,5 +68,4 @@ class ReportsController < ApplicationController
       array << { name: categories_by_id[category_id].name, data: counts_by_day} # data structure
     end
   end
-  
 end
