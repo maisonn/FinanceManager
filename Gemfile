@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
+gem 'devise'
 gem 'activemodel', '~> 6.1', '>= 6.1.1'
 gem 'activerecord', '~> 6.1', '>= 6.1.1'
 gem 'bootstrap'

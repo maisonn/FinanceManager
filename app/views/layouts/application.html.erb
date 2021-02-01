@@ -12,8 +12,10 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light", style= "background-color: #e4e1d5">
+      <div class="container-fluid">
+        <form class="d-flex">
         <a class="navbar-brand" href="/">Finance Manager</a>
-        <form class="form-inline">
+        <% if user_signed_in? %>
           <div style="padding-left: 10px;">
           <%= link_to 'Incomes', incomes_path, class: "btn btn-outline-info" %>
           </div>
@@ -26,9 +28,35 @@
           <div style="padding-left: 10px;">
           <%= link_to 'Generate Report', reports_path, class: "btn btn-outline-warning" %>
           </div>
+          <% end %>
         </form>
+        <form class="d-flex">
+        <% if user_signed_in? %>
+          Logged in as:<strong><%= current_user.email %></strong>.
+          <div style="padding-left: 10px;">
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link', class: "btn btn-outline-success" %>
+          </div>
+          <div style="padding-left: 10px;">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', class: "btn btn-outline-primary"  %>
+          </div>
+        <% else %>
+          <div style="padding-left: 10px;">
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link', class: "btn btn-outline-success"  %>
+          </div>
+          <div style="padding-left: 10px;">
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link', class: "btn btn-outline-info"  %>
+          </div>
+        <% end %>
+        </form>
+      </div>
       </nav>
     </header>
+    <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
