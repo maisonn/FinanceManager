@@ -17,7 +17,7 @@
       <%= form.label :category_id %>
       </div>
       <div class="col-sm-3">
-      <%= form.select(:category_id, options_from_collection_for_select(Category.all, :id, :name), { :prompt => 'Select a Category' }, { class: 'form-control' }) %>
+      <%= form.select(:category_id, options_from_collection_for_select(Category.all, :id, :name), { :prompt => 'Select a Category' }, { class: 'form-control', :required => true }) %>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
       <%= form.label :amount %>
       </div>
       <div class="col-sm-3">
-      <%= form.number_field :amount, step: 0.01, min: 0, class: "form-control", placeholder: "1, 25.5, 100, etc." %>
+      <%= form.number_field :amount, step: 0.01, min: 0, class: "form-control", placeholder: "1, 25.5, 100, etc.", :required => true %>
       </div>
     </div>
 
@@ -44,7 +44,7 @@
       <%= form.label :description %>
       </div>
       <div class="col-sm-3">
-      <%= form.text_field :description, class: "form-control", placeholder: "Salary, Ebay, Sales, etc." %>
+      <%= form.text_field :description, class: "form-control", placeholder: "Salary, Ebay, Sales, etc.", :required => true %>
       </div>
     </div>
 

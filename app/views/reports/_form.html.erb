@@ -8,7 +8,7 @@
     <%= form.text_field :end_date, class: 'form-control flatpickr', placeholder: "Select Last Date" %>
     </div>
     <div class="col-sm-3">
-      <%= form.select(:types, TYPES, { :prompt => 'Select a Type'}, { class: 'form-control' }) %>
+      <%= form.select(:types, TYPES, { :prompt => 'Select a Type'}, { class: 'form-control', :required => true }) %>
     </div>
     <div class="row col-sm-3">
       <%= form.submit "Generate", class: "btn btn-outline-info" %>
