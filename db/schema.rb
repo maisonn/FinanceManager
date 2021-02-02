@@ -16,14 +16,17 @@ ActiveRecord::Schema.define(version: 2021_02_01_161944) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "name"
     t.string "description"
     t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "expenses", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "category_id"
     t.decimal "amount", precision: 8, scale: 2
     t.date "date"
@@ -31,9 +34,11 @@ ActiveRecord::Schema.define(version: 2021_02_01_161944) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_expenses_on_category_id"
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
   create_table "incomes", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "category_id"
     t.decimal "amount", precision: 8, scale: 2
     t.date "date"
@@ -41,6 +46,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_161944) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_incomes_on_category_id"
+    t.index ["user_id"], name: "index_incomes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

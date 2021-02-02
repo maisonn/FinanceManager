@@ -16,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @categories.each do |category| %>
+    <% current_user.categories.each do |category| %>
       <tr>
         <td class="align-middle"><%= category.name %></td>
         <td class="align-middle"><%= category.description %></td>

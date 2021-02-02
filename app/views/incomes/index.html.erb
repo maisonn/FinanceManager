@@ -18,7 +18,7 @@
   </thead>
 
   <tbody>
-    <% @incomes.each do |income| %>
+    <% current_user.incomes.each do |income| %>
       <tr>
         <td class="align-middle"><%= income.category %></td>
         <td class="align-middle"><%= income.amount %></td>

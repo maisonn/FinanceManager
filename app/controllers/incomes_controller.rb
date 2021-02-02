@@ -25,7 +25,7 @@ class IncomesController < ApplicationController
   # POST /incomes
   # POST /incomes.json
   def create
-    @income = Income.new(income_params)
+    @income = current_user.incomes.build(income_params)
 
     respond_to do |format|
       if @income.save

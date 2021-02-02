@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
     @expense_line_chart_data = datamydata
     
     #Total Sum
-    @total = Expense.where(date: @start_date..@end_date).sum(:amount)
+    @total = current_user.expenses.where(date: @start_date..@end_date).sum(:amount)
 
 
     #For Incomes
@@ -23,34 +23,34 @@ class ReportsController < ApplicationController
     @income_line_chart_data = mydatamy
 
     #Total Sum
-    @totali = Income.where(date: @start_date..@end_date).sum(:amount)
+    @totali = current_user.incomes.where(date: @start_date..@end_date).sum(:amount)
   end
 
   def keytransformexpense
-    hash = Expense.where(date: @start_date..@end_date).group(:category_id).sum(:amount)
+    hash = current_user.expenses.where(date: @start_date..@end_date).group(:category_id).sum(:amount)
 
-    categories_by_id = Category.where(id: hash.keys).index_by(&:id)
+    categories_by_id = current_user.categories.where(id: hash.keys).index_by(&:id)
 
     hash.transform_keys { |key| categories_by_id[key] }
   end
 
   def keytransformincome
-    hash = Income.where(date: @start_date..@end_date).group(:category_id).sum(:amount)
+    hash = current_user.incomes.where(date: @start_date..@end_date).group(:category_id).sum(:amount)
 
-    categories_by_id = Category.where(id: hash.keys).index_by(&:id)
+    categories_by_id = current_user.categories.where(id: hash.keys).index_by(&:id)
 
     hash.transform_keys { |key| categories_by_id[key] }
   end
   
   def datamydata
-    data = Expense.where(date: @start_date..@end_date).group(:category_id).group_by_day(:date).sum(:amount)
-    categories_by_id = Category.all.index_by(&:id)
+    data = current_user.expenses.where(date: @start_date..@end_date).group(:category_id).group_by_day(:date).sum(:amount)
+    categories_by_id = current_user.categories.all.index_by(&:id)
     data.transform_keys { |key| [categories_by_id[key[0]].name, key[1]] }
   end
 
   def mydatamy
-    data = Income.where(date: @start_date..@end_date).group(:category_id).group_by_day(:date).sum(:amount)
-    categories_by_id = Category.all.index_by(&:id)
+    data = current_user.incomes.where(date: @start_date..@end_date).group(:category_id).group_by_day(:date).sum(:amount)
+    categories_by_id = current_user.categories.all.index_by(&:id)
     data.transform_keys { |key| [categories_by_id[key[0]].name, key[1]] }
   end
 end
