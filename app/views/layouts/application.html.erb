@@ -34,17 +34,17 @@
         <% if user_signed_in? %>
           <p>Logged in as: <strong><%= current_user.email %></strong>.</p>
           <div style="padding-left: 10px;">
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link', class: "btn btn-outline-success" %>
+          <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-outline-success" %>
           </div>
           <div style="padding-left: 10px;">
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', class: "btn btn-outline-primary"  %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary"  %>
           </div>
         <% else %>
           <div style="padding-left: 10px;">
-          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link', class: "btn btn-outline-success"  %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-success"  %>
           </div>
           <div style="padding-left: 10px;">
-          <%= link_to "Login", new_user_session_path, :class => 'navbar-link', class: "btn btn-outline-info"  %>
+          <%= link_to "Login", new_user_session_path, class: "btn btn-outline-info"  %>
           </div>
         <% end %>
         </form>
