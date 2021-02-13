@@ -10,6 +10,7 @@ class ReportsController < ApplicationController
     #Charts
     @expense_pie_chart_data = @hash_var.each_with_object({}) { |(k, v), hash| hash[k.name] = v }
     @expense_line_chart_data = datamydata
+    @series_e = @hash_var.map { |k, v| { name: k.name, data: [v.to_f] } }.to_json
     
     #Total Sum
     @total = current_user.expenses.where(date: @start_date..@end_date).sum(:amount)
@@ -21,6 +22,7 @@ class ReportsController < ApplicationController
     #Charts
     @income_pie_chart_data = @hashi_var.each_with_object({}) { |(k, v), hash| hash[k.name] = v }
     @income_line_chart_data = mydatamy
+    @series_i = @hashi_var.map { |k, v| { name: k.name, data: [v.to_f] } }.to_json
 
     #Total Sum
     @totali = current_user.incomes.where(date: @start_date..@end_date).sum(:amount)
