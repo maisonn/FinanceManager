@@ -1,4 +1,7 @@
-<% @hash_var.any? do %>
+
+<br>
+
+<% @hashi_var.any? do %>
 <div class="form-group row">
       <div class="col-sm-3">
         <table class="table table-striped table-hover table-bordered">
@@ -28,11 +31,36 @@
       </div>
     
     <div>
+      <% if params[:types] == 'Incomes' %>
+        <h4 style="text-align: center">Income Reports Based By Category</h4>
+      <% end %>
       <%= pie_chart @income_pie_chart_data, prefix: "$", width: "800px", height: "500px" %>
     </div>
 </div>
 
+<br>
+
+<div>
+  <% if params[:types] == 'Incomes' %>
+    <h4 style="text-align: center">Income Reports Grouped By Day</h4>
+  <% end %>
 <%= line_chart @income_line_chart_data, discrete: true, prefix: "$", height: "500px" %>
+</div>
+
+<br>
+
+<% if params[:groupbys] == 'Week' %>
+  <h4 style="text-align: center">Income Reports Grouped By Week</h4>
+  <%= column_chart @income_line_chart_data_by_week, discrete: true, prefix: "$", height: "500px" %>
+
+<% elsif params[:groupbys] == 'Month' %>
+  <h4 style="text-align: center">Income Reports Grouped By Month</h4>
+  <%= column_chart @income_line_chart_data_by_month, discrete: true, prefix: "$", height: "500px" %>
+
+<% elsif params[:groupbys] == 'Year' %>
+  <h4 style="text-align: center">Income Reports Grouped By Year</h4>
+  <%= bar_chart @income_line_chart_data_by_year, discrete: true, prefix: "$", height: "500px" %>
+<% end %>
 <figure class="highcharts-figure">
     <div id="container"></div>
     <div id="container1"></div>

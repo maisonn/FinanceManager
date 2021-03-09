@@ -1,9 +1,9 @@
 <% if @start_date.nil? || @end_date.nil? || params[:types].nil? %>
-<h1>Insert Dates</h1>
+<h2 style="text-align: center">Insert Dates</h2>
 <% elsif (@start_date <= @end_date) && (@start_date != '' || @end_date != '') && (params[:types] == 'Expenses') %>
-<h1>Expense Reports For Period: <%= @start_date %> - <%= @end_date %></h1>
+<h2 style="text-align: center">Expense Reports For Period: <%= @start_date %> - <%= @end_date %></h2>
 <% elsif (@start_date <= @end_date) && (@start_date != '' || @end_date != '') && (params[:types] == 'Incomes') %>
-<h1>Income Reports For Period: <%= @start_date %> - <%= @end_date %></h1>
+<h2 style="text-align: center">Income Reports For Period: <%= @start_date %> - <%= @end_date %></h2>
 <% else %>
-<h1>Data Invalid: Make sure you've selected right tags</h1>
+<h2 style="text-align: center">Data Invalid: Make sure you've selected right tags</h2>
 <% end %>

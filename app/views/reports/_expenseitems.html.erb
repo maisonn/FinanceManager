@@ -1,3 +1,6 @@
+
+<br>
+
 <% @hash_var.any? do %>
 <div class="form-group row">
       <div class="col-sm-3">
@@ -28,11 +31,36 @@
       </div>
     
     <div>
+      <% if params[:types] == 'Expenses' %>
+        <h4 style="text-align: center">Expense Reports Based By Category</h4>
+      <% end %>
       <%= pie_chart @expense_pie_chart_data, prefix: "$", width: "800px", height: "500px" %>
     </div>
 </div>
 
+<br>
+
+<div>
+  <% if params[:types] == 'Expenses' %>
+    <h4 style="text-align: center">Expense Reports Grouped By Day</h4>
+  <% end %>
 <%= line_chart @expense_line_chart_data, discrete: true, prefix: "$", height: "500px" %>
+</div>
+
+<br>
+
+<% if params[:groupbys] == 'Week' %>
+  <h4 style="text-align: center">Expense Reports Grouped By Week</h4>
+  <%= column_chart @expense_line_chart_data_by_week, discrete: true, prefix: "$", height: "500px" %>
+
+<% elsif params[:groupbys] == 'Month' %>
+  <h4 style="text-align: center">Expense Reports Grouped By Month</h4>
+  <%= column_chart @expense_line_chart_data_by_month, discrete: true, prefix: "$", height: "500px" %>
+
+<% elsif params[:groupbys] == 'Year' %>
+  <h4 style="text-align: center">Expense Reports Grouped By Year</h4>
+  <%= bar_chart @expense_line_chart_data_by_year, discrete: true, prefix: "$", height: "500px" %>
+<% end %>
 <figure class="highcharts-figure">
     <div id="container"></div>
     <div id="container1"></div>

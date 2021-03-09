@@ -24,3 +24,13 @@ Turbolinks.start()
 ActiveStorage.start()
 
 
+document.addEventListener('turbolinks:load', function () {
+    $("#checkgroupby").click(function () {
+        if ($(this).is(":checked")) {
+            $("#groupby").show();
+        } else {
+            $("#groupby").hide();
+        }
+    });
+});
+
