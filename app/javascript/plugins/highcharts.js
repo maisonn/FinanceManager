@@ -3,8 +3,6 @@ require("highcharts/modules/data")(Highcharts)
 require("highcharts/modules/exporting")(Highcharts)
 require("highcharts/modules/accessibility")(Highcharts)
 require("highcharts/modules/export-data")(Highcharts)
-require("highcharts/highcharts-more")(Highcharts)
-require("highcharts/highcharts-3d")(Highcharts)
 
 // Radialize the colors
 Highcharts.setOptions({
